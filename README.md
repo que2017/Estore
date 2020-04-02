@@ -1,8 +1,8 @@
 # Estore
 电子商城案例
 
-#1 数据库创建
-##1.1 用户表
+# 1 数据库创建
+## 1.1 用户表
 id	主键（自增长）
 username	用户名
 password	密码
@@ -25,7 +25,7 @@ CREATE TABLE users(
 	updatetime timestamp
 )
 
-##1.2 商品表
+## 1.2 商品表
 id		主键（自增长）
 name		商品名称
 price		商品单价
@@ -44,7 +44,7 @@ CREATE TABLE products(
 	description varchar(255)
 );
 
-##1.3 订单表
+## 1.3 订单表
 id		主键（自增长）
 money		订单金额
 receiverinfo	收货地址
@@ -62,7 +62,7 @@ CREATE TABLE orders(
 	foreign key(user_id) references users(id)
 );
 
-##1.4 订单项表
+## 1.4 订单项表
 order_id	订单编号（外键）
 product_id	商品编号（外键）
 buynum		购买数量
