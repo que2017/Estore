@@ -24,7 +24,7 @@ CREATE TABLE users(
 	state int,
 	activecode varchar(100),
 	updatetime timestamp
-)
+);
 ```
 ## 1.2 商品表
 ```
