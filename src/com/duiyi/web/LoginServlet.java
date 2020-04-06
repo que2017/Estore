@@ -13,7 +13,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println(request.getParameter("username"));
 
-		response.getWriter().write("wowo");
+		response.getWriter().write("wowowo");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
