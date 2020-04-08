@@ -1,10 +1,6 @@
 package com.duiyi.web;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,32 +14,32 @@ import com.duiyi.service.UserService;
 import com.duiyi.utils.Constants;
 import com.duiyi.utils.JSONUtil;
 
-public class RegistServlet extends HttpServlet {
+public class ActiveUserServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ResultCodeData result = new ResultCodeData();
-		// 检查验证码是否正确
-		String validateStr = request.getParameter("validateStr");
-		String str2 = request.getSession().getAttribute("validateStr").toString();
-		if (validateStr.isEmpty() || str2.isEmpty() || !validateStr.equals(str2)) {
-			result.setResult(Constants.FAIL);
-			result.setCode(Constants.VALIDATESTR_WRONG);
-			response.getWriter().write(JSONUtil.buildJsonString(result.toString()));
-			return;
-		}
+		String activeCode = request.getParameter("activecode");
 		
-		// 准备数据，注册用户
-		User user = new User(request.getParameterMap());
 		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
-		// 注册用户并发送激活邮件
-		int code = service.registUser(user);
-		if (code != Constants.RESULT_SUCCESS) {
-			result.setResult(Constants.SUCCESS);
+		User user = service.findUser("activecode", activeCode);
+		if (user != null) {
+			if (System.currentTimeMillis() - user.getUpdatetime().getTime() > 2 * 3600 * 1000) {
+				// 超过两小时，激活连接失效
+				result.setResult(Constants.FAIL);
+				result.setCode(Constants.ACTIVE_CODE_EXPIRED);
+			} else {
+				result.setResult(Constants.SUCCESS);
+				result.setCode(Constants.RESULT_SUCCESS);
+				// 更新用户为激活状态
+				user.setState(Constants.USER_ACTIVED);
+				service.updateUser(user);
+			}
 		} else {
+			// 未找到用户
 			result.setResult(Constants.FAIL);
+			result.setCode(Constants.ACTIVE_CODE_WRONG);
 		}
-		result.setCode(code);
 		response.getWriter().write(JSONUtil.buildJsonString(result.toString()));
 	}
 

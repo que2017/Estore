@@ -19,7 +19,6 @@ import com.duiyi.domain.User;
 import com.duiyi.factory.BasicFactory;
 import com.duiyi.utils.Constants;
 import com.duiyi.utils.DaoUtil;
-import com.duiyi.utils.JSONUtil;
 
 public class UserServiceImpl implements UserService {
 	private UserDao dao = BasicFactory.getFactory().getInstance(UserDao.class);
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
 		}
 		// 准备数据
 		user.setRole("user");
-		user.setState(0);
+		user.setState(Constants.USER_UNACTIVED);
 		user.setActivecode(UUID.randomUUID().toString());
 		// 注册用户并发送激活邮件
 		Connection conn = null;
@@ -75,6 +74,10 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		return Constants.RESULT_SUCCESS;
+	}
+
+	public void updateUser(User user) {
+		dao.updateUser(user);
 	}
 
 }

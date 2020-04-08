@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 public class User implements Serializable {
+	private int id;
+	
 	private String username;
 	
 	private String password;
@@ -20,12 +22,23 @@ public class User implements Serializable {
 	private String activecode;
 	
 	private Timestamp updatetime;
+	
+	public User() {
+	}
 
 	public User(Map<String, String[]> map) {
 		this.username = map.get("username") != null ? map.get("username")[0] : "";
 		this.password = map.get("password") != null ? map.get("password")[0] : "";
 		this.nickname = map.get("nickname") != null ? map.get("nickname")[0] : "";
 		this.email = map.get("email") != null ? map.get("email")[0] : "";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUsername() {

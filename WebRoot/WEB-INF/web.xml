@@ -35,6 +35,11 @@
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.duiyi.web.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ActiveUserServlet</servlet-name>
+    <servlet-class>com.duiyi.web.ActiveUserServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -48,6 +53,10 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActiveUserServlet</servlet-name>
+    <url-pattern>/servlet/ActiveUserServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

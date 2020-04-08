@@ -20,4 +20,10 @@ public interface UserService {
 	 */
 	int registUser(User user);
 
+	/**
+	 * 更新用户
+	 *
+	 * @param user 用户
+	 */
+	void updateUser(User user);
 }

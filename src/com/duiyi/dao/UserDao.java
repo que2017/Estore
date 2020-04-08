@@ -22,4 +22,11 @@ public interface UserDao {
 	 */
 	void addUser(User user, Connection conn);
 
+	/**
+	 * 更新用户
+	 *
+	 * @param user 用户
+	 */
+	void updateUser(User user);
+
 }
