@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public void updateUser(User user) {
-		String sql = "update users set password=?,nickname=?,email=?,state=?,activecode=?,updatetime=? where id = ?";
+		String sql = "update users set password=?,nickname=?,email=?,state=?,activecode=?,updatetime=? where id=?";
 		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
 		try {
 			runner.update(sql, user.getPassword(),
@@ -47,7 +47,8 @@ public class UserDaoImpl implements UserDao {
 					user.getEmail(),
 					user.getState(),
 					user.getActivecode(),
-					user.getUpdatetime());
+					user.getUpdatetime(),
+					user.getId());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

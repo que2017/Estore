@@ -24,7 +24,11 @@ public class ActiveUserServlet extends HttpServlet {
 		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
 		User user = service.findUser("activecode", activeCode);
 		if (user != null) {
-			if (System.currentTimeMillis() - user.getUpdatetime().getTime() > 2 * 3600 * 1000) {
+			if (user.getState() == Constants.USER_ACTIVED) {
+				// 用户已激活
+				result.setResult(Constants.FAIL);
+				result.setCode(Constants.ACTIVE_CODE_ACTIVED);
+			} else if (System.currentTimeMillis() - user.getUpdatetime().getTime() > 2 * 3600 * 1000) {
 				// 超过两小时，激活连接失效
 				result.setResult(Constants.FAIL);
 				result.setCode(Constants.ACTIVE_CODE_EXPIRED);

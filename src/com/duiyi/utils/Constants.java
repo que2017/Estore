@@ -23,6 +23,7 @@ public class Constants {
 	// 用户激活相关状态码
 	public static int ACTIVE_CODE_WRONG = 301;
 	public static int ACTIVE_CODE_EXPIRED = 302;
+	public static int ACTIVE_CODE_ACTIVED = 303;
 
 	// 重新发送激活邮件相关状态码
 	public static int EMAIL_UNREGIST = 401;

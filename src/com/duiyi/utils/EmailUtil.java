@@ -21,7 +21,7 @@ public class EmailUtil {
 	 * @throws MessagingException
 	 */
 	public static void sendActiveEmail(String username, String address, String activeCode) throws MessagingException {
-		Properties prop = new Properties();
+		/*Properties prop = new Properties();
 		prop.setProperty("mail.transport.protocol", "smtp");
 		prop.setProperty("mail.smtp.host", "localhost");
 		prop.setProperty("mail.smtp.auth", "true");
@@ -37,7 +37,7 @@ public class EmailUtil {
 			+ activeCode);
 		Transport trans = session.getTransport();
 		trans.connect("xxx", "ppp"); // 输入企业邮箱的用户名密码
-		trans.sendMessage(msg, msg.getAllRecipients());
+		trans.sendMessage(msg, msg.getAllRecipients());*/
 	}
 	
 	private EmailUtil() {
