@@ -25,7 +25,7 @@ public interface UserDao {
 	/**
 	 * 更新用户
 	 *
-	 * @param user 用户
+	 * @param user
 	 */
 	void updateUser(User user);
 

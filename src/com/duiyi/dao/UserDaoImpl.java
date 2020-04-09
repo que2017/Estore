@@ -39,10 +39,15 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public void updateUser(User user) {
-		String sql = "update users set state = ? where id = ?";
+		String sql = "update users set password=?,nickname=?,email=?,state=?,activecode=?,updatetime=? where id = ?";
 		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
 		try {
-			runner.update(sql, user.getState(), user.getId());
+			runner.update(sql, user.getPassword(),
+					user.getNickname(),
+					user.getEmail(),
+					user.getState(),
+					user.getActivecode(),
+					user.getUpdatetime());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

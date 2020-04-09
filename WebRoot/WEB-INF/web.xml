@@ -39,9 +39,10 @@
     <servlet-name>ActiveUserServlet</servlet-name>
     <servlet-class>com.duiyi.web.ActiveUserServlet</servlet-class>
   </servlet>
-
-
-
+  <servlet>
+    <servlet-name>SendActiveCodeServlet</servlet-name>
+    <servlet-class>com.duiyi.web.SendActiveCodeServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ValidateImgServlet</servlet-name>
     <url-pattern>/servlet/ValidateImgServlet</url-pattern>
@@ -57,6 +58,10 @@
   <servlet-mapping>
     <servlet-name>ActiveUserServlet</servlet-name>
     <url-pattern>/servlet/ActiveUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendActiveCodeServlet</servlet-name>
+    <url-pattern>/servlet/SendActiveCodeServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
