@@ -29,6 +29,10 @@ public class Constants {
 	public static int EMAIL_UNREGIST = 401;
 	public static int EMAIL_ACTIVED = 402;
 	public static int EMAIL_SEND_FAIL = 403;
+	
+	// ºÏ≤‚session «∑Ò”––ß
+	public static int SESSION_INVALID = 501;
+	public static int SESSION_NO_USER = 502;
 	private Constants() {
 	}
 }

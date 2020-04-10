@@ -28,7 +28,8 @@ public class LoginServlet extends HttpServlet {
 			if (user.getState() == Constants.USER_ACTIVED) {
 				// 用户激活
 				if (user.getPassword().equals(password)) {
-					// 密码正确
+					// 密码正确，保存session
+					request.getSession().setAttribute("user", user);
 					result.setResult(Constants.SUCCESS);
 					result.setCode(Constants.RESULT_SUCCESS);
 				} else {

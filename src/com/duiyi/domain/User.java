@@ -33,6 +33,14 @@ public class User implements Serializable {
 		this.email = map.get("email") != null ? map.get("email")[0] : "";
 	}
 
+	@Override
+	public String toString() {
+		return "\'username\':\'" + username
+			+ "\',\'nickname\':\'" + nickname
+			+ "\',\'email\':\'" + email
+			+ "\',\'role\':\'" + role + "\'";
+	}
+
 	public int getId() {
 		return id;
 	}
