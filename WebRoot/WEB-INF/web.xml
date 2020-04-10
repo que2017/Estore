@@ -47,6 +47,11 @@
     <servlet-name>CheckSessionServlet</servlet-name>
     <servlet-class>com.duiyi.web.CheckSessionServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.duiyi.web.LogoutServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>ValidateImgServlet</servlet-name>
@@ -71,6 +76,10 @@
   <servlet-mapping>
     <servlet-name>CheckSessionServlet</servlet-name>
     <url-pattern>/servlet/CheckSessionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/servlet/LogoutServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
