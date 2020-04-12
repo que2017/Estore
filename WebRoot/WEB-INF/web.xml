@@ -59,6 +59,11 @@
     <servlet-name>ListAllProductServlet</servlet-name>
     <servlet-class>com.duiyi.web.ListAllProductServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ProductImgServlet</servlet-name>
+    <servlet-class>com.duiyi.web.ProductImgServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -98,6 +103,10 @@
   <servlet-mapping>
     <servlet-name>ListAllProductServlet</servlet-name>
     <url-pattern>/servlet/ListAllProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductImgServlet</servlet-name>
+    <url-pattern>/servlet/ProductImgServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
