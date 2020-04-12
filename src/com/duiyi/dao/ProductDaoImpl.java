@@ -1,8 +1,10 @@
 package com.duiyi.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.duiyi.domain.Product;
 import com.duiyi.utils.DaoUtil;
@@ -20,6 +22,17 @@ public class ProductDaoImpl implements ProductDao {
 					product.getPnum(),
 					product.getImgurl(),
 					product.getDescription());
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	public List<Product> findAllProduct() {
+		String sql = "select * from products";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		try {
+			return runner.query(sql, new BeanListHandler<Product>(Product.class));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

@@ -1,5 +1,6 @@
 package com.duiyi.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.duiyi.dao.ProductDao;
@@ -12,6 +13,10 @@ public class ProductServiceImpl implements ProductService {
 	public void addProduct(Product product) {
 		product.setId(UUID.randomUUID().toString());
 		dao.addProduct(product);
+	}
+
+	public List<Product> findAllProduct() {
+		return dao.findAllProduct();
 	}
 
 }

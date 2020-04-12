@@ -29,7 +29,7 @@ import com.duiyi.utils.IOUtil;
 import com.duiyi.utils.JSONUtil;
 import com.duiyi.utils.PictureUtil;
 
-public class addProductServlet extends HttpServlet {
+public class AddProductServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -16,6 +16,9 @@ public class Product {
 	private String imgurl;
 	
 	private String description;
+	
+	public Product() {
+	}
 
 	public Product(Map<String, String> paramMap) {
 		this.id = paramMap.get("id");
@@ -25,6 +28,17 @@ public class Product {
 		this.pnum = Integer.parseInt(paramMap.get("pnum"));
 		this.imgurl = paramMap.get("imgurl");
 		this.description = paramMap.get("description");
+	}
+
+	@Override
+	public String toString() {
+		return "\'id\':\'" + id
+			+ "\',\'name\':\'" + name
+			+ "\',\'price\':\'" + price
+			+ "\',\'category\':\'" + category
+			+ "\',\'pnum\':\'" + pnum
+			+ "\',\'imgurl\':\'" + imgurl
+			+ "\',\'description\':\'" + description + "\'";
 	}
 
 	public String getId() {
