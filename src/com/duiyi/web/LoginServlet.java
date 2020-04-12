@@ -13,6 +13,7 @@ import com.duiyi.factory.BasicFactory;
 import com.duiyi.service.UserService;
 import com.duiyi.utils.Constants;
 import com.duiyi.utils.JSONUtil;
+import com.duiyi.utils.MD5Util;
 
 public class LoginServlet extends HttpServlet {
 
@@ -20,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		ResultCodeData result = new ResultCodeData();
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String password = MD5Util.md5(request.getParameter("password"));
 		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
 		User user = service.findUser("username", username);
 		if (user != null) {

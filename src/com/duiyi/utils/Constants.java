@@ -33,6 +33,11 @@ public class Constants {
 	// 检测session是否有效
 	public static int SESSION_INVALID = 501;
 	public static int SESSION_NO_USER = 502;
+	
+	// 添加商品
+	public static int FROM_FORMAT_ERROR = 601;
+	public static int PARAM_FORMAT_ERROR = 602;
+	
 	private Constants() {
 	}
 }

@@ -1,10 +1,6 @@
 package com.duiyi.web;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +13,7 @@ import com.duiyi.factory.BasicFactory;
 import com.duiyi.service.UserService;
 import com.duiyi.utils.Constants;
 import com.duiyi.utils.JSONUtil;
+import com.duiyi.utils.MD5Util;
 
 public class RegistServlet extends HttpServlet {
 
@@ -35,6 +32,7 @@ public class RegistServlet extends HttpServlet {
 		
 		// 准备数据，注册用户
 		User user = new User(request.getParameterMap());
+		user.setPassword(MD5Util.md5(user.getPassword()));
 		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
 		// 注册用户并发送激活邮件
 		int code = service.registUser(user);

@@ -51,6 +51,11 @@
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.duiyi.web.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>addProductServlet</servlet-name>
+    <servlet-class>com.duiyi.web.addProductServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -80,6 +85,10 @@
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/servlet/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addProductServlet</servlet-name>
+    <url-pattern>/servlet/addProductServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
