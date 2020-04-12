@@ -19,4 +19,8 @@ public class ProductServiceImpl implements ProductService {
 		return dao.findAllProduct();
 	}
 
+	public Product findProductById(String id) {
+		return dao.findProductById(id);
+	}
+
 }

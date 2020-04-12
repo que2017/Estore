@@ -19,4 +19,12 @@ public interface ProductService {
 	 */
 	List<Product> findAllProduct();
 
+	/**
+	 * 通过id查找商品
+	 *
+	 * @param id
+	 * @return
+	 */
+	Product findProductById(String id);
+
 }
