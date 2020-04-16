@@ -1,6 +1,7 @@
 package com.duiyi.utils;
 
 public class Constants {
+	public static final String CART_MAP = "cartMap";
 	
 	public static final String SUCCESS = "succ";
 	
@@ -37,6 +38,9 @@ public class Constants {
 	// 添加商品
 	public static int FROM_FORMAT_ERROR = 601;
 	public static int PARAM_FORMAT_ERROR = 602;
+	
+	// 添加商品到购物车
+	public static int NOT_FIND_PRODUCT = 701;
 	
 	private Constants() {
 	}

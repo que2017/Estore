@@ -11,6 +11,12 @@
 	</context-param>
 	<!-- 全站参数配置结束 -->
 	
+	<!-- 监听器配置开始 -->
+	<listener>
+		<listener-class>com.duiyi.listener.MySessionListener</listener-class>
+	</listener>
+	<!-- 监听器配置结束 -->
+	
 	<!-- 过滤器配置开始 -->
 	<filter>
 		<description>全站乱码过滤器</description>
@@ -67,6 +73,11 @@
     <servlet-name>ProductDetailServlet</servlet-name>
     <servlet-class>com.duiyi.web.ProductDetailServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>com.duiyi.web.AddToCartServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -116,6 +127,10 @@
   <servlet-mapping>
     <servlet-name>ProductDetailServlet</servlet-name>
     <url-pattern>/servlet/ProductDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/servlet/AddToCartServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
