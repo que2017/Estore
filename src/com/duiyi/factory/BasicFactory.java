@@ -10,7 +10,6 @@ import java.util.Properties;
 import com.duiyi.annotation.NeedTrans;
 import com.duiyi.dao.Dao;
 import com.duiyi.service.Service;
-import com.duiyi.utils.Constants;
 import com.duiyi.utils.DaoUtil;
 
 public class BasicFactory {
@@ -80,6 +79,7 @@ public class BasicFactory {
 		return proxy;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public <T extends Dao> T getDao(Class<T> clazz) {
 		if (prop == null || clazz == null) {
 			return null;
@@ -92,17 +92,4 @@ public class BasicFactory {
 			throw new RuntimeException(e);
 		}
 	}
-	
-//	public <T> T getInstance(Class<T> clazz) {
-//		if (prop == null || clazz == null) {
-//			return null;
-//		}
-//		String className = prop.getProperty(clazz.getSimpleName());
-//		try {
-//			return (T) Class.forName(className).newInstance();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			throw new RuntimeException(e);
-//		}
-//	}
 }

@@ -101,15 +101,6 @@ public class DaoUtil {
 		}
 	}
 	
-	public static Connection getConnection() {
-		try {
-			return source.getConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-	}
-	
 	private DaoUtil() {
 	}
 }

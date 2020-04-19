@@ -1,7 +1,5 @@
 package com.duiyi.service;
 
-import javax.mail.MessagingException;
-
 import com.duiyi.annotation.NeedTrans;
 import com.duiyi.domain.User;
 

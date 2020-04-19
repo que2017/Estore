@@ -1,15 +1,11 @@
 package com.duiyi.service;
 
-import java.sql.Connection;
 import java.util.UUID;
-
-import org.apache.commons.dbutils.DbUtils;
 
 import com.duiyi.dao.UserDao;
 import com.duiyi.domain.User;
 import com.duiyi.factory.BasicFactory;
 import com.duiyi.utils.Constants;
-import com.duiyi.utils.DaoUtil;
 import com.duiyi.utils.EmailUtil;
 
 public class UserServiceImpl implements UserService {

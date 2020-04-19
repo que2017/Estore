@@ -1,7 +1,5 @@
 package com.duiyi.dao;
 
-import java.sql.Connection;
-
 import com.duiyi.domain.User;
 
 public interface UserDao extends Dao {

@@ -1,6 +1,5 @@
 package com.duiyi.dao;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.apache.commons.dbutils.QueryRunner;

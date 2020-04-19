@@ -1,8 +1,9 @@
 package com.duiyi.domain;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public class Product {
+public class Product implements Serializable {
 	private String id;
 	
 	private String name;
