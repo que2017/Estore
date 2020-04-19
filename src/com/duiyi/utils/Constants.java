@@ -7,7 +7,9 @@ public class Constants {
 	
 	public static final String FAIL = "fail";
 	
+	// 默认成功or失败码
 	public static int RESULT_SUCCESS = 0;
+	public static int RESULT_FAIL = -1;
 	
 	// 用户登录相关状态码
 	public static int USERNAME_PASSWORD_WRONG = 101;

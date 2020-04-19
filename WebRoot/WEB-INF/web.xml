@@ -81,6 +81,21 @@
     <servlet-name>ListCartProductServlet</servlet-name>
     <servlet-class>com.duiyi.web.ListCartProductServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteCartProductServlet</servlet-name>
+    <servlet-class>com.duiyi.web.DeleteCartProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ChangeCartProductNumServlet</servlet-name>
+    <servlet-class>com.duiyi.web.ChangeCartProductNumServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <servlet-class>com.duiyi.web.ClearCartServlet</servlet-class>
+  </servlet>
+
+
+
 
 
 
@@ -140,6 +155,18 @@
   <servlet-mapping>
     <servlet-name>ListCartProductServlet</servlet-name>
     <url-pattern>/servlet/ListCartProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteCartProductServlet</servlet-name>
+    <url-pattern>/servlet/DeleteCartProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangeCartProductNumServlet</servlet-name>
+    <url-pattern>/servlet/ChangeCartProductNumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClearCartServlet</servlet-name>
+    <url-pattern>/servlet/ClearCartServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
