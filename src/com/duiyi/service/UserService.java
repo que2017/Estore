@@ -1,5 +1,7 @@
 package com.duiyi.service;
 
+import javax.mail.MessagingException;
+
 import com.duiyi.annotation.NeedTrans;
 import com.duiyi.domain.User;
 
@@ -17,7 +19,7 @@ public interface UserService extends Service {
 	 * 注册用户
 	 *
 	 * @param user 用户
-	 * @return 返回码，0：成功，3：用户名已注册，4：邮箱已注册，5：其他
+	 * @return 返回码，0：成功，202：用户名已注册，203：邮箱已注册，204：其他
 	 */
 	@NeedTrans
 	int registUser(User user);

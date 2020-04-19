@@ -33,20 +33,13 @@ public class UserServiceImpl implements UserService {
 		user.setState(Constants.USER_UNACTIVED);
 		user.setActivecode(UUID.randomUUID().toString());
 		// 注册用户并发送激活邮件
-		Connection conn = null;
 		try {
-			conn = DaoUtil.getConnection();
-			conn.setAutoCommit(false);
 			dao.addUser(user);
-			
 			// 发送激活邮件
 			EmailUtil.sendActiveEmail(user.getUsername(), user.getEmail(), user.getActivecode());
-			
-			DbUtils.commitAndCloseQuietly(conn);
 		} catch (Exception e) {
-			DbUtils.rollbackAndCloseQuietly(conn);
 			e.printStackTrace();
-			return Constants.OTHER_RESON;
+			new RuntimeException(e);
 		}
 		
 		return Constants.RESULT_SUCCESS;

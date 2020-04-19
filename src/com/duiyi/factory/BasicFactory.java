@@ -10,6 +10,7 @@ import java.util.Properties;
 import com.duiyi.annotation.NeedTrans;
 import com.duiyi.dao.Dao;
 import com.duiyi.service.Service;
+import com.duiyi.utils.Constants;
 import com.duiyi.utils.DaoUtil;
 
 public class BasicFactory {
@@ -41,45 +42,42 @@ public class BasicFactory {
 			return null;
 		}
 		String className = prop.getProperty(clazz.getSimpleName());
+		final T service;
 		try {
-			final T service = (T) Class.forName(className).newInstance();
-			// 使用动态代理，根据注解找出需要数据库事务的方法
-			T proxy = (T) Proxy.newProxyInstance(service.getClass().getClassLoader(), service.getClass().getInterfaces(),
-				new InvocationHandler() {
-				public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-					if (method.isAnnotationPresent(NeedTrans.class)) {
-						// 方法有NeedTrans注解
-						try {
-							// 开启事务
-							DaoUtil.startTrans();
-							// 真正执行方法
-							Object obj = method.invoke(service, args);
-							// 提交事务
-							DaoUtil.commit();
-							return obj;
-						} catch (InvocationTargetException e) {
-							// method方法抛出的异常，回滚事务
-							DaoUtil.rollback();
-							e.printStackTrace();
-							throw new RuntimeException(e.getTargetException());
-						} catch (Exception e) {
-							// 其他异常，回滚事务
-							DaoUtil.rollback();
-							throw new RuntimeException(e);
-						} finally {
-							DaoUtil.release();
-						}
-					} else {
-						// 方法无NeedTrans注解
-						return method.invoke(service, args);
-					}
-				}
-			});
-			return proxy;
+			service = (T) Class.forName(className).newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+		// 使用动态代理，根据注解找出需要数据库事务的方法
+		T proxy = (T) Proxy.newProxyInstance(service.getClass().getClassLoader(), service.getClass().getInterfaces(),
+			new InvocationHandler() {
+			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+				if (method.isAnnotationPresent(NeedTrans.class)) {
+					// 方法有NeedTrans注解
+					try {
+						// 开启事务
+						DaoUtil.startTrans();
+						// 真正执行方法
+						Object obj = method.invoke(service, args);
+						// 提交事务
+						DaoUtil.commit();
+						return obj;
+					} catch (InvocationTargetException e) {
+						// method方法抛出的异常，回滚事务
+						DaoUtil.rollback();
+						e.printStackTrace();
+					} finally {
+						DaoUtil.release();
+					}
+					return null;
+				} else {
+					// 方法无NeedTrans注解
+					return method.invoke(service, args);
+				}
+			}
+		});
+		return proxy;
 	}
 	
 	public <T extends Dao> T getDao(Class<T> clazz) {
