@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		ResultCodeData result = new ResultCodeData();
 		String username = request.getParameter("username");
 		String password = MD5Util.md5(request.getParameter("password"));
-		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		User user = service.findUser("username", username);
 		if (user != null) {
 			// 查找到用户

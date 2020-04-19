@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.duiyi.domain.Product;
 
-public interface ProductDao {
+public interface ProductDao extends Dao {
 	/**
 	 * ÃÌº”…Ã∆∑
 	 *

@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import com.duiyi.domain.User;
 
-public interface UserDao {
+public interface UserDao extends Dao {
 	/**
 	 * 通过字段名称和值，寻找用户
 	 *

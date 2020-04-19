@@ -97,7 +97,7 @@ public class AddProductServlet extends HttpServlet {
 		}
 		// 在数据库中添加商品
 		Product product = new Product(paramMap);
-		ProductService service = BasicFactory.getFactory().getInstance(ProductService.class);
+		ProductService service = BasicFactory.getFactory().getService(ProductService.class);
 		service.addProduct(product);
 
 		result = new ResultCodeData(Constants.SUCCESS, Constants.RESULT_SUCCESS);

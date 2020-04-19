@@ -13,7 +13,7 @@ import com.duiyi.utils.DaoUtil;
 import com.duiyi.utils.EmailUtil;
 
 public class UserServiceImpl implements UserService {
-	private UserDao dao = BasicFactory.getFactory().getInstance(UserDao.class);
+	private UserDao dao = BasicFactory.getFactory().getDao(UserDao.class);
 
 	public User findUser(String tagName, String tagValue) {
 		return dao.findUser(tagName, tagValue);

@@ -20,7 +20,7 @@ public class AddToCartServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		ProductService service = BasicFactory.getFactory().getInstance(ProductService.class);
+		ProductService service = BasicFactory.getFactory().getService(ProductService.class);
 		Product prod = service.findProductById(id);
 		ResultCodeData result;
 		if (prod == null) {

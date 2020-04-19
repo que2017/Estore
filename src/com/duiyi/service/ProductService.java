@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.duiyi.domain.Product;
 
-public interface ProductService {
+public interface ProductService extends Service {
 	/**
 	 * ÃÌº”…Ã∆∑
 	 *

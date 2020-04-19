@@ -21,7 +21,7 @@ public class ActiveUserServlet extends HttpServlet {
 		ResultCodeData result = new ResultCodeData();
 		String activeCode = request.getParameter("activecode");
 		
-		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		User user = service.findUser("activecode", activeCode);
 		if (user != null) {
 			if (user.getState() == Constants.USER_ACTIVED) {

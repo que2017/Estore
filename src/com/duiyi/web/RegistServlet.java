@@ -33,7 +33,7 @@ public class RegistServlet extends HttpServlet {
 		// 准备数据，注册用户
 		User user = new User(request.getParameterMap());
 		user.setPassword(MD5Util.md5(user.getPassword()));
-		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		// 注册用户并发送激活邮件
 		int code = service.registUser(user);
 		if (code != Constants.RESULT_SUCCESS) {

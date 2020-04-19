@@ -17,7 +17,7 @@ public class ProductDetailServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		ProductService service = BasicFactory.getFactory().getInstance(ProductService.class);
+		ProductService service = BasicFactory.getFactory().getService(ProductService.class);
 		Product prod = service.findProductById(id);
 		response.getWriter().write(JSONUtil.buildJsonString(prod.toString()));
 	}

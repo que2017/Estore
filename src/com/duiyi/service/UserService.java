@@ -2,7 +2,7 @@ package com.duiyi.service;
 
 import com.duiyi.domain.User;
 
-public interface UserService {
+public interface UserService extends Service {
 	/**
 	 * 通过字段名称和值，寻找用户
 	 *

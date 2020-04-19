@@ -24,7 +24,7 @@ public class SendActiveCodeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		ResultCodeData result = new ResultCodeData();
 		String email = request.getParameter("email");
-		UserService service = BasicFactory.getFactory().getInstance(UserService.class);
+		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		User user = service.findUser("email", email);
 		if (user != null) {
 			// ≤È’“µΩ” œ‰

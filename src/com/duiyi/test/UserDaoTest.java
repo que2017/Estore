@@ -9,7 +9,7 @@ import com.duiyi.factory.BasicFactory;
 public class UserDaoTest {
 	@Test
 	public void findUserTest() {
-		UserDao dao = BasicFactory.getFactory().getInstance(UserDao.class);
+		UserDao dao = BasicFactory.getFactory().getDao(UserDao.class);
 		User user = dao.findUser("username", "zhang");
 		System.out.println(user.getPassword());
 	}

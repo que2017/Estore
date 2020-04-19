@@ -17,7 +17,7 @@ public class ListAllProductServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ProductService service = BasicFactory.getFactory().getInstance(ProductService.class);
+		ProductService service = BasicFactory.getFactory().getService(ProductService.class);
 		// 查询所有商品
 		List<Product> list = service.findAllProduct();
 		response.getWriter().write(JSONUtil.buildJsonString("\'productlist\':" + JSONUtil.buildJsonArrayString(list)));
