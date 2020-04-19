@@ -21,11 +21,11 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	public void addUser(User user, Connection conn) {
+	public void addUser(User user) {
 		String sql = "insert into users values(null, ?, ?, ?, ?, ?, ?, ?, null)";
-		QueryRunner runner = new QueryRunner();
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
 		try {
-			runner.update(conn, sql, user.getUsername(),
+			runner.update(sql, user.getUsername(),
 					user.getPassword(),
 					user.getNickname(),
 					user.getEmail(),

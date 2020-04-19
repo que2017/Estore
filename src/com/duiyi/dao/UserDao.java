@@ -18,9 +18,8 @@ public interface UserDao extends Dao {
 	 * 添加用户
 	 *
 	 * @param user 用户
-	 * @param conn 数据库连接
 	 */
-	void addUser(User user, Connection conn);
+	void addUser(User user);
 
 	/**
 	 * 更新用户

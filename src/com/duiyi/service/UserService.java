@@ -1,5 +1,6 @@
 package com.duiyi.service;
 
+import com.duiyi.annotation.NeedTrans;
 import com.duiyi.domain.User;
 
 public interface UserService extends Service {
@@ -18,6 +19,7 @@ public interface UserService extends Service {
 	 * @param user 用户
 	 * @return 返回码，0：成功，3：用户名已注册，4：邮箱已注册，5：其他
 	 */
+	@NeedTrans
 	int registUser(User user);
 
 	/**

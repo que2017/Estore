@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 		try {
 			conn = DaoUtil.getConnection();
 			conn.setAutoCommit(false);
-			dao.addUser(user, conn);
+			dao.addUser(user);
 			
 			// ·¢ËÍ¼¤»îÓÊ¼ş
 			EmailUtil.sendActiveEmail(user.getUsername(), user.getEmail(), user.getActivecode());
