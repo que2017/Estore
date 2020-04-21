@@ -7,6 +7,10 @@ public class Constants {
 	
 	public static final String FAIL = "fail";
 	
+	// 订单支付状态
+	public static int ORDER_NOT_PAYED = 0;
+	public static int ORDER_PAYED = 1;
+	
 	// 默认成功or失败码
 	public static int RESULT_SUCCESS = 0;
 	public static int RESULT_FAIL = -1;
