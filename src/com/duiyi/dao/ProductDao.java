@@ -1,5 +1,6 @@
 package com.duiyi.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.duiyi.domain.Product;
@@ -26,5 +27,14 @@ public interface ProductDao extends Dao {
 	 * @return
 	 */
 	Product findProductById(String id);
+
+	/**
+	 * 减少商品的库存数量
+	 *
+	 * @param productId
+	 * @param buynum
+	 * @throws SQLException 
+	 */
+	void reducePnum(String productId, int buynum) throws SQLException;
 
 }

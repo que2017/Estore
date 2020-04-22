@@ -20,7 +20,7 @@ public interface UserService extends Service {
 	 * @return 返回码，0：成功，202：用户名已注册，203：邮箱已注册，204：其他
 	 */
 	@NeedTrans
-	int registUser(User user);
+	Integer registUser(User user);
 
 	/**
 	 * 更新用户

@@ -1,5 +1,6 @@
 package com.duiyi.service;
 
+import com.duiyi.annotation.NeedTrans;
 import com.duiyi.domain.Order;
 
 public interface OrderService extends Service {
@@ -9,6 +10,7 @@ public interface OrderService extends Service {
 	 * @param order
 	 * @return
 	 */
-	int addOrder(Order order);
+	@NeedTrans
+	Integer addOrder(Order order);
 
 }

@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
 		return dao.findUser(tagName, tagValue);
 	}
 
-	public int registUser(User user) {
+	public Integer registUser(User user) {
 		// 检查用户名是否被注册过
 		if (dao.findUser("username", user.getUsername()) != null) {
 			return Constants.USERNAME_ALREADY_REGISTED;

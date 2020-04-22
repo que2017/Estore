@@ -51,4 +51,13 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
+	public void reducePnum(String productId, int buynum) throws SQLException {
+		String sql = "update products set pnum=pnum-? where id=? and pnum-?>=0";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		int count = runner.update(sql, buynum, productId, buynum);
+		if (count <= 0) {
+			throw new SQLException("¿â´æ²»×ã£¡");
+		}
+	}
+
 }

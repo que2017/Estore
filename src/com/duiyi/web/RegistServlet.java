@@ -35,9 +35,12 @@ public class RegistServlet extends HttpServlet {
 		user.setPassword(MD5Util.md5(user.getPassword()));
 		UserService service = BasicFactory.getFactory().getService(UserService.class);
 		// 注册用户并发送激活邮件
-		int code = service.registUser(user);
-		if (code != Constants.RESULT_SUCCESS) {
+		Integer code = service.registUser(user);
+		if (code != null && code == Constants.RESULT_SUCCESS) {
 			result.setResult(Constants.SUCCESS);
+		} else if (code == null) {
+			code = Constants.OTHER_RESON;
+			result.setResult(Constants.FAIL);
 		} else {
 			result.setResult(Constants.FAIL);
 		}

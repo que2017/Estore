@@ -14,10 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.duiyi.domain.Order;
 import com.duiyi.domain.OrderItem;
 import com.duiyi.domain.Product;
+import com.duiyi.domain.ResultCodeData;
 import com.duiyi.domain.User;
 import com.duiyi.factory.BasicFactory;
 import com.duiyi.service.OrderService;
 import com.duiyi.utils.Constants;
+import com.duiyi.utils.JSONUtil;
 
 public class AddOrderServlet extends HttpServlet {
 
@@ -45,11 +47,16 @@ public class AddOrderServlet extends HttpServlet {
 		
 		// 添加订单到order表，并且在orderitem表中也要同步添加
 		OrderService service = BasicFactory.getFactory().getService(OrderService.class);
-		int code = service.addOrder(order);
-		// 清空购物车
-		cartMap.clear();
-		
-		response.getWriter().write("aaa");
+		Integer code = service.addOrder(order);
+		ResultCodeData result;
+		if (code != null && code == Constants.RESULT_SUCCESS) {
+			// 清空购物车
+			cartMap.clear();
+			result = new ResultCodeData(Constants.SUCCESS, Constants.RESULT_SUCCESS);
+		} else {
+			result = new ResultCodeData(Constants.FAIL, Constants.RESULT_FAIL);
+		}
+		response.getWriter().write(JSONUtil.buildJsonString(result.toString()));
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
