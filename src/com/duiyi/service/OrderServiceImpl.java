@@ -1,6 +1,7 @@
 package com.duiyi.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.duiyi.dao.OrderDao;
 import com.duiyi.dao.OrderItemDao;
@@ -32,6 +33,10 @@ public class OrderServiceImpl implements OrderService {
 			throw new RuntimeException(e);
 		}
 		return Constants.RESULT_SUCCESS;
+	}
+
+	public List<Order> findOrdersByUserId(int id) {
+		return orderDao.findOrdersByUserId(id);
 	}
 
 }

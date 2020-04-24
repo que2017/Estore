@@ -19,6 +19,15 @@ public class Order implements Serializable {
 	
 	private List<OrderItem> list;
 
+	@Override
+	public String toString() {
+		return "\'id\':\'" + id
+			+ "\',\'money\':\'" + money
+			+ "\',\'receiverinfo\':\'" + receiverinfo
+			+ "\',\'paystate\':\'" + paystate
+			+ "\',\'ordertime\':\'" + ordertime + "\'";
+	}
+
 	public String getId() {
 		return id;
 	}

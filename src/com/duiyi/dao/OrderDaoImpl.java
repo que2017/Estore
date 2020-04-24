@@ -1,8 +1,10 @@
 package com.duiyi.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.duiyi.domain.Order;
 import com.duiyi.utils.DaoUtil;
@@ -17,6 +19,17 @@ public class OrderDaoImpl implements OrderDao {
 				order.getReceiverinfo(),
 				order.getPaystate(),
 				order.getUser_id());
+	}
+
+	public List<Order> findOrdersByUserId(int id) {
+		String sql = "select * from orders where user_id=?";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		try {
+			return runner.query(sql, new BeanListHandler<Order>(Order.class), id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 	}
 
 }
