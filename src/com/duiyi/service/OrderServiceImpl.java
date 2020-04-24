@@ -1,13 +1,16 @@
 package com.duiyi.service;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.duiyi.dao.OrderDao;
 import com.duiyi.dao.OrderItemDao;
 import com.duiyi.dao.ProductDao;
 import com.duiyi.domain.Order;
 import com.duiyi.domain.OrderItem;
+import com.duiyi.domain.Product;
 import com.duiyi.factory.BasicFactory;
 import com.duiyi.utils.Constants;
 
@@ -37,6 +40,19 @@ public class OrderServiceImpl implements OrderService {
 
 	public List<Order> findOrdersByUserId(int id) {
 		return orderDao.findOrdersByUserId(id);
+	}
+
+	public Map<Product, Integer> findProductsByOrderId(String orderId) {
+		Map<Product, Integer> map = new HashMap<Product, Integer>();
+		// 1.根据orderId，从orderitem表中查出所有的商品product_id和购买数量buynum
+		List<OrderItem> orderItemList = orderItemDao.findProductsByOrderId(orderId);
+		// 2.根据查到的product_id，从product表中查找商品信息Product
+		for (OrderItem item : orderItemList) {
+			Product prod = productDao.findProductById(item.getProduct_id());
+			map.put(prod, item.getBuynum());
+		}
+		// 3.将Product和buynum存入map中
+		return map;
 	}
 
 }

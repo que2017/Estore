@@ -3,6 +3,9 @@ package com.duiyi.domain;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
+
+import com.duiyi.utils.JSONUtil;
 
 public class Order implements Serializable {
 	private String id;
@@ -18,6 +21,8 @@ public class Order implements Serializable {
 	private int user_id;
 	
 	private List<OrderItem> list;
+	
+	private Map<Product, Integer> map;
 
 	@Override
 	public String toString() {
@@ -25,7 +30,7 @@ public class Order implements Serializable {
 			+ "\',\'money\':\'" + money
 			+ "\',\'receiverinfo\':\'" + receiverinfo
 			+ "\',\'paystate\':\'" + paystate
-			+ "\',\'ordertime\':\'" + ordertime + "\'";
+			+ "\',\'ordertime\':\'" + ordertime + "\'," + JSONUtil.getCartMapJsonString(map);
 	}
 
 	public String getId() {
@@ -82,5 +87,13 @@ public class Order implements Serializable {
 
 	public void setList(List<OrderItem> list) {
 		this.list = list;
+	}
+
+	public Map<Product, Integer> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<Product, Integer> map) {
+		this.map = map;
 	}
 }
