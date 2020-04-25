@@ -32,4 +32,15 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 
+	public void deleteOrderById(String orderId) {
+		String sql = "delete from orders where id=?";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		try {
+			runner.update(sql, orderId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
 }

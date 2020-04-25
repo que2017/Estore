@@ -22,4 +22,12 @@ public interface OrderItemDao extends Dao {
 	 */
 	List<OrderItem> findProductsByOrderId(String id);
 
+	/**
+	 * 根据字段名和字段值删除表记录
+	 *
+	 * @param tagName 字段名
+	 * @param tagValue 字段值
+	 */
+	void deleteOrderItem(String tagName, String tagValue);
+
 }

@@ -30,4 +30,15 @@ public class OrderItemDaoImpl implements OrderItemDao {
 		}
 	}
 
+	public void deleteOrderItem(String tagName, String tagValue) {
+		String sql = "delete from orderitem where " + tagName + "=?";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		try {
+			runner.update(sql, tagValue);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
 }

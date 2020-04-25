@@ -101,6 +101,11 @@
     <servlet-name>ListAllOrderServlet</servlet-name>
     <servlet-class>com.duiyi.web.ListAllOrderServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteOrderServlet</servlet-name>
+    <servlet-class>com.duiyi.web.DeleteOrderServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -185,6 +190,10 @@
   <servlet-mapping>
     <servlet-name>ListAllOrderServlet</servlet-name>
     <url-pattern>/servlet/ListAllOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteOrderServlet</servlet-name>
+    <url-pattern>/servlet/DeleteOrderServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

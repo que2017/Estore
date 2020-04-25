@@ -33,4 +33,13 @@ public interface OrderService extends Service {
 	 */
 	Map<Product, Integer> findProductsByOrderId(String id);
 
+	/**
+	 * ¸ù¾Ý¶©µ¥ºÅÉ¾³ý¶©µ¥
+	 *
+	 * @param orderId
+	 * @return
+	 */
+	@NeedTrans
+	Integer deleteOrderById(String orderId);
+
 }

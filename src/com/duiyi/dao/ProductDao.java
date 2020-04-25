@@ -37,4 +37,12 @@ public interface ProductDao extends Dao {
 	 */
 	void reducePnum(String productId, int buynum) throws SQLException;
 
+	/**
+	 * ÃÌº”…Ã∆∑ø‚¥Ê
+	 *
+	 * @param productId
+	 * @param buynum
+	 */
+	void increasePnum(String productId, int buynum);
+
 }

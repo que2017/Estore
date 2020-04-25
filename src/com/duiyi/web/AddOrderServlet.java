@@ -49,7 +49,7 @@ public class AddOrderServlet extends HttpServlet {
 		OrderService service = BasicFactory.getFactory().getService(OrderService.class);
 		Integer code = service.addOrder(order);
 		ResultCodeData result;
-		if (code != null && code == Constants.RESULT_SUCCESS) {
+		if (code != null && code.equals(Constants.RESULT_SUCCESS)) {
 			// Çå¿Õ¹ºÎï³µ
 			cartMap.clear();
 			result = new ResultCodeData(Constants.SUCCESS, Constants.RESULT_SUCCESS);

@@ -55,4 +55,18 @@ public class OrderServiceImpl implements OrderService {
 		return map;
 	}
 
+	public Integer deleteOrderById(String orderId) {
+		// 1.查找出所有List<OrderItem>，将对应的product的pnum添加回去
+		List<OrderItem> orderItemList = orderItemDao.findProductsByOrderId(orderId);
+		for (OrderItem item : orderItemList) {
+			productDao.increasePnum(item.getProduct_id(), item.getBuynum());
+		}
+		// 2.根据orderId，从orderitem表删除对应订单商品项
+		orderItemDao.deleteOrderItem("order_id", orderId);
+		// 3.根据orderId，从orders表中删除订单，这一步必须在第2步后面，因为order_id是orderitem表的外键
+		// 以上3步要在同一个事物中
+		orderDao.deleteOrderById(orderId);
+		return Constants.RESULT_SUCCESS;
+	}
+
 }

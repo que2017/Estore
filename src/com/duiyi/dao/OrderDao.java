@@ -22,4 +22,12 @@ public interface OrderDao extends Dao {
 	 */
 	List<Order> findOrdersByUserId(int id);
 
+	/**
+	 * ¸ù¾ÝorderIdÉ¾³ý¶©µ¥
+	 *
+	 * @param orderId
+	 * @throws SQLException 
+	 */
+	void deleteOrderById(String orderId);
+
 }
