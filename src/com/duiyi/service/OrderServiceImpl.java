@@ -69,4 +69,8 @@ public class OrderServiceImpl implements OrderService {
 		return Constants.RESULT_SUCCESS;
 	}
 
+	public Order findOrderById(String orderId) {
+		return orderDao.findOrderById(orderId);
+	}
+
 }

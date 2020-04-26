@@ -30,4 +30,12 @@ public interface OrderDao extends Dao {
 	 */
 	void deleteOrderById(String orderId);
 
+	/**
+	 * 根据订单号查询订单
+	 *
+	 * @param orderId
+	 * @return
+	 */
+	Order findOrderById(String orderId);
+
 }

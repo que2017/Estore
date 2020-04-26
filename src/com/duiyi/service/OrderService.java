@@ -42,4 +42,12 @@ public interface OrderService extends Service {
 	@NeedTrans
 	Integer deleteOrderById(String orderId);
 
+	/**
+	 * 根据订单号查询订单
+	 *
+	 * @param orderId
+	 * @return
+	 */
+	Order findOrderById(String orderId);
+
 }
