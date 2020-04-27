@@ -109,6 +109,11 @@
     <servlet-name>PayOrderServlet</servlet-name>
     <servlet-class>com.duiyi.web.PayOrderServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Callback</servlet-name>
+    <servlet-class>com.duiyi.web.Callback</servlet-class>
+  </servlet>
+
 
 
 
@@ -203,6 +208,10 @@
   <servlet-mapping>
     <servlet-name>PayOrderServlet</servlet-name>
     <url-pattern>/servlet/PayOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Callback</servlet-name>
+    <url-pattern>/servlet/Callback</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

@@ -73,4 +73,8 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.findOrderById(orderId);
 	}
 
+	public void changeOrderState(String orderId, int state) {
+		orderDao.changeOrderState(orderId, state);
+	}
+
 }

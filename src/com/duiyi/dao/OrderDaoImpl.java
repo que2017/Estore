@@ -55,4 +55,15 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 
+	public void changeOrderState(String orderId, int state) {
+		String sql = "update orders set paystate=? where id=?";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		try {
+			runner.update(sql, state, orderId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
 }

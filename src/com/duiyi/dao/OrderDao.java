@@ -38,4 +38,12 @@ public interface OrderDao extends Dao {
 	 */
 	Order findOrderById(String orderId);
 
+	/**
+	 * ÐÞ¸Ä¶©µ¥Ö§¸¶×´Ì¬
+	 *
+	 * @param orderId
+	 * @param state
+	 */
+	void changeOrderState(String orderId, int state);
+
 }

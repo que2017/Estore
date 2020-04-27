@@ -32,7 +32,7 @@ public class PayOrderServlet extends HttpServlet {
 		String p5_Pid = "";
 		String p6_Pcat = "";
 		String p7_Pdesc = "";
-		String p8_Url = "http://localhost:8082/Estore/servlet/Callback"; // 支付结果的回调
+		String p8_Url = "http://localhost:8080/Estore/servlet/Callback"; // 支付结果的回调
 		String p9_SAF = "0";
 		String pa_MP  = "";
 		String pd_FrpId = request.getParameter("pd_FrpId"); // 支付银行
