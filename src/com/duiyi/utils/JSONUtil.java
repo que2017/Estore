@@ -12,7 +12,7 @@ public class JSONUtil {
 	
 	public static <T> String buildJsonArrayString(List<T> list) {
 		if (list == null || list.size() == 0) {
-			return "";
+			return "[]";
 		}
 		StringBuilder build = new StringBuilder();
 		build.append("[");
@@ -28,7 +28,7 @@ public class JSONUtil {
 	
 	public static String getCartMapJsonString(Map<Product, Integer> cartMap) {
 		if (cartMap == null) {
-			return "{}";
+			return "\'productlist\':[]";
 		}
 		StringBuilder builder = new StringBuilder();
 		builder.append("[");
