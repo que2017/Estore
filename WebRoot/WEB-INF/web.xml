@@ -113,6 +113,11 @@
     <servlet-name>Callback</servlet-name>
     <servlet-class>com.duiyi.web.Callback</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SaleListServlet</servlet-name>
+    <servlet-class>com.duiyi.web.SaleListServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -212,6 +217,10 @@
   <servlet-mapping>
     <servlet-name>Callback</servlet-name>
     <url-pattern>/servlet/Callback</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaleListServlet</servlet-name>
+    <url-pattern>/servlet/SaleListServlet</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

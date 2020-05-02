@@ -11,6 +11,7 @@ import com.duiyi.dao.ProductDao;
 import com.duiyi.domain.Order;
 import com.duiyi.domain.OrderItem;
 import com.duiyi.domain.Product;
+import com.duiyi.domain.SaleInfo;
 import com.duiyi.factory.BasicFactory;
 import com.duiyi.utils.Constants;
 
@@ -75,6 +76,10 @@ public class OrderServiceImpl implements OrderService {
 
 	public void changeOrderState(String orderId, int state) {
 		orderDao.changeOrderState(orderId, state);
+	}
+
+	public List<SaleInfo> getSaleList() {
+		return orderDao.getSaleList();
 	}
 
 }

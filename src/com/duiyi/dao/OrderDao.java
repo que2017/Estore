@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.duiyi.domain.Order;
+import com.duiyi.domain.SaleInfo;
 
 public interface OrderDao extends Dao {
 	/**
@@ -45,5 +46,12 @@ public interface OrderDao extends Dao {
 	 * @param state
 	 */
 	void changeOrderState(String orderId, int state);
+
+	/**
+	 * 获取销售榜单
+	 *
+	 * @return
+	 */
+	List<SaleInfo> getSaleList();
 
 }

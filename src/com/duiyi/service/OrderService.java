@@ -6,6 +6,7 @@ import java.util.Map;
 import com.duiyi.annotation.NeedTrans;
 import com.duiyi.domain.Order;
 import com.duiyi.domain.Product;
+import com.duiyi.domain.SaleInfo;
 
 public interface OrderService extends Service {
 	/**
@@ -57,5 +58,12 @@ public interface OrderService extends Service {
 	 * @param state
 	 */
 	void changeOrderState(String orderId, int state);
+
+	/**
+	 * 获取销售榜单
+	 *
+	 * @return
+	 */
+	List<SaleInfo> getSaleList();
 
 }

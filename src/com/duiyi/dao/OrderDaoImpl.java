@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.duiyi.domain.Order;
+import com.duiyi.domain.SaleInfo;
 import com.duiyi.utils.DaoUtil;
 
 public class OrderDaoImpl implements OrderDao {
@@ -60,6 +61,22 @@ public class OrderDaoImpl implements OrderDao {
 		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
 		try {
 			runner.update(sql, state, orderId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	public List<SaleInfo> getSaleList() {
+		// 多表查询，查询orders、products、orderitem表找出商品id、商品名称、商品种类、销售数量
+		String sql = "select products.id productName, products.name productName, products.category category, sum(orderitem.buynum) saleNum "
+			+ "from orders, products, orderitem "
+			+ "where orders.paystate=1 and products.id=orderitem.product_id and orders.id=orderitem.order_id "
+			+ "group by products.id "
+			+ "order by saleNum desc";
+		QueryRunner runner = new QueryRunner(DaoUtil.getSource());
+		try {
+			return runner.query(sql, new BeanListHandler<SaleInfo>(SaleInfo.class));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
